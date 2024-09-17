@@ -22,10 +22,10 @@ func GetNetworkData() ([]datetype.NetworkData, error) {
 		}
 		data := datetype.NetworkData{
 			Name:        netIO.Name,
-			BytesSent:   netIO.BytesSent,
-			BytesRecv:   netIO.BytesRecv,
-			PacketsSent: netIO.PacketsSent,
-			PacketsRecv: netIO.PacketsRecv,
+			BytesSent:   float64(netIO.BytesSent),
+			BytesRecv:   float64(netIO.BytesRecv),
+			PacketsSent: float64(netIO.PacketsSent),
+			PacketsRecv: float64(netIO.PacketsRecv),
 		}
 		netData = append(netData, data)
 	}

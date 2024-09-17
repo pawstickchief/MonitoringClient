@@ -31,9 +31,9 @@ func GetDiskInfo() ([]datetype.DiskData, error) {
 		// 创建 DiskData 实例并添加到返回切片中
 		data := datetype.DiskData{
 			Mountpoint:  partition.Mountpoint,
-			Total:       usage.Total,
-			Used:        usage.Used,
-			Free:        usage.Free,
+			Total:       float64(usage.Total),
+			Used:        float64(usage.Used),
+			Free:        float64(usage.Free),
 			UsedPercent: usage.UsedPercent,
 		}
 		diskData = append(diskData, data)

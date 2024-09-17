@@ -12,9 +12,9 @@ func GetMemoryData() (datetype.MemoryData, error) {
 	}
 
 	memData := datetype.MemoryData{
-		Total:       v.Total,
-		Used:        v.Used,
-		Free:        v.Free,
+		Total:       float64(v.Total),
+		Used:        float64(v.Used),
+		Free:        float64(v.Free),
 		UsedPercent: v.UsedPercent,
 	}
 
