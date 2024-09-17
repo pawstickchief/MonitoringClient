@@ -1,6 +1,10 @@
 package mode
 
-import "math"
+import (
+	"golang.org/x/text/encoding/simplifiedchinese"
+	"golang.org/x/text/transform"
+	"math"
+)
 
 func RoundToTwoDecimal(value float64) float64 {
 	return math.Round(value*100) / 100
@@ -24,4 +28,11 @@ func ConvertNetwork(bytes float64) (float64, string) {
 	} else {
 		return RoundToTwoDecimal(bytes / 1024), "kB"
 	}
+}
+func ConvertGBKToUTF8(gbkData []byte) (string, error) {
+	utf8Data, _, err := transform.String(simplifiedchinese.GBK.NewDecoder(), string(gbkData))
+	if err != nil {
+		return "", err
+	}
+	return utf8Data, nil
 }
